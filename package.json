@@ -7,7 +7,7 @@
     "prototype-parse": "bin/parse"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/_mocha --recursive -R spec"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,10 @@
     "nconf": "^0.7.1",
     "path": "^0.11.14",
     "psd": "^3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.4"
   }
 }

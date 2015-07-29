@@ -62,6 +62,7 @@ gulp.task('generate-assets', function(cb) {
 * dir - The directory containing the photoshop files
 * configDir - The directory where the config file will be created
 * imageOutputDir - The directory where the .png files will be created
+* linkPrefix - The naming prefix for photoshop layers to generate hotposts. Defaults to `link__`
 
 ## PSD Naming Conventions
 
