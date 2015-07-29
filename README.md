@@ -1,5 +1,6 @@
 # prototype-psd-parser
 
+[![Circle CI](https://circleci.com/gh/mindmelting/prototype-psd-parser.svg?style=svg)](https://circleci.com/gh/mindmelting/prototype-psd-parser)
 [![npm version](https://badge.fury.io/js/prototype-psd-parser.svg)](http://badge.fury.io/js/prototype-psd-parser)
 [![Dependency Status](https://david-dm.org/mindmelting/prototype-psd-parser.svg)](https://david-dm.org/mindmelting/prototype-psd-parser)
 
