@@ -13,19 +13,33 @@ describe('Prototype PSD Parser', function() {
     fs.writeFile.restore();
   });
 
-  it('Should expose init as a function', function() {
-    expect(ParsePSD.init).to.be.a('function');
-  });
+  
 
-  it('Should pass in the correct PSD file path', function(done) {
-    sinon.stub(ParsePSD, 'parse');
-    ParsePSD.init({
-      dir: './test'
-    }).then(function() {
-      expect(ParsePSD.parse.calledOnce).to.equal(true);
-      expect(ParsePSD.parse.calledWith('test/test_desktop.psd')).to.equal(true);
+  describe('Init', function() {
+    beforeEach(function() {
+      sinon.stub(ParsePSD, 'parse');
+      sinon.stub(ParsePSD, 'createScreenConfig');
+    });
+
+    afterEach(function() {
       ParsePSD.parse.restore();
-      done();
+      ParsePSD.createScreenConfig.restore();
+    });
+
+    it('Should expose init as a function', function() {
+      expect(ParsePSD.init).to.be.a('function');
+    });
+
+    it('Should pass in the correct PSD file path', function(done) {
+      ParsePSD.init({
+        dir: './test'
+      }).then(function() {
+        expect(ParsePSD.parse.calledOnce).to.equal(true);
+        expect(ParsePSD.parse.calledWith('test/test_desktop.psd')).to.equal(true);
+        done();
+      });
     });
   });
+
+  
 });
