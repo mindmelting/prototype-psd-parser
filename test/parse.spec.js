@@ -13,8 +13,6 @@ describe('Prototype PSD Parser', function() {
     fs.writeFile.restore();
   });
 
-  
-
   describe('Init', function() {
     beforeEach(function() {
       sinon.stub(ParsePSD, 'parse');
@@ -41,5 +39,24 @@ describe('Prototype PSD Parser', function() {
     });
   });
 
-  
+  describe('Config', function() {
+    beforeEach(function() {
+      sinon.stub(ParsePSD, 'createScreenConfig');
+    });
+
+    afterEach(function() {
+      ParsePSD.createScreenConfig.restore();
+    });
+
+    it('Should create the correct configuration', function(done) {
+      ParsePSD.init({
+        dir: './test'
+      }).then(function() {
+        expect(ParsePSD.createScreenConfig.calledOnce).to.equal(true);
+        expect(ParsePSD.screenJSON).to.deep.equal([{"state":"test","url":"/test","breakpoints":{"desktop":{"hotspots":[{"x":121,"y":412,"width":509,"height":117,"state":"state2"}],"imageWidth":750,"imageHeight":1334}}}]);
+        done();
+      });
+    });
+
+  });
 });
