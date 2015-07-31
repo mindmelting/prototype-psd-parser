@@ -27,7 +27,7 @@ npm install prototype-psd-parser -g
 ```javascript
 var psdParser = require('prototype-psd-parser');
 
-psdParser.init({
+psdParser({
   dir: './psd',
   configDir: './src/app/config',
   imageOutputDir: './src/assets/screens'
